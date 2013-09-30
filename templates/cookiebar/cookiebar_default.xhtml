@@ -1,0 +1,8 @@
+
+<div id="cookiebar" class="<?php echo $this->position; ?>">
+	<span><?php echo $this->message; ?></span>
+	<button onclick="setCookieBar('<?php echo $this->cookie; ?>'); return false;"><?php echo $this->button; ?></button>
+	<?php if ($this->more): ?>
+	<a href="<?php echo $this->moreHref; ?>" title="<?php echo $this->moreTitle; ?>"><?php echo $this->more; ?></a>
+	<?php endif; ?>
+</div>
