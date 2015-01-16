@@ -15,6 +15,9 @@
         "contao/core": ">=3.2",
         "contao-community-alliance/composer-plugin": "2.*"
     },
+    "replace": {
+        "contao-legacy/cookiebar": "self.version"
+    },
     "extra": {
         "contao": {
             "sources": {

@@ -1,6 +1,13 @@
 cookiebar Changelog
 ===================
 
+Version 1.0.3 stable (2015-01-16)
+---------------------------------
+
+### Improved
+- Updated the composer.json file
+
+
 Version 1.0.2 stable (2014-12-18)
 ---------------------------------
 
