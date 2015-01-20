@@ -1,6 +1,13 @@
 cookiebar Changelog
 ===================
 
+Version 1.0.4 stable (2015-01-20)
+---------------------------------
+
+### Improved
+- Added the German language files (thanks to Didier Federer)
+
+
 Version 1.0.3 stable (2015-01-16)
 ---------------------------------
 
