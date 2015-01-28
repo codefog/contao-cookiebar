@@ -1,6 +1,13 @@
 cookiebar Changelog
 ===================
 
+Version 1.0.5 stable (2015-01-28)
+---------------------------------
+
+### Improved
+- Added the Italian translation (thanks to Paolo Brunelli)
+
+
 Version 1.0.4 stable (2015-01-20)
 ---------------------------------
 
