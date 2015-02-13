@@ -1,6 +1,13 @@
 cookiebar Changelog
 ===================
 
+Version 1.0.6 stable (2015-02-12)
+---------------------------------
+
+### Fixed
+- Fixed the CSS not being compatible on smaller screens
+
+
 Version 1.0.5 stable (2015-01-28)
 ---------------------------------
 
