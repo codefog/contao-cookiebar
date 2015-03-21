@@ -1,7 +1,7 @@
 /**
  * cookiebar extension for Contao Open Source CMS
  *
- * Copyright (C) 2013 Codefog
+ * Copyright (C) 2011-2015 Codefog
  *
  * @package cookiebar
  * @author  Codefog <http://codefog.pl>
