@@ -16,7 +16,7 @@
  * Extension version
  */
 @define('COOKIEBAR_VERSION', '1.0');
-@define('COOKIEBAR_BUILD', '6');
+@define('COOKIEBAR_BUILD', '7');
 
 
 /**

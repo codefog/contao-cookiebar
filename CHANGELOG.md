@@ -1,6 +1,13 @@
 cookiebar Changelog
 ===================
 
+Version 1.0.7 stable (2015-03-21)
+---------------------------------
+
+### Fixed
+- The assets are now not added statically
+
+
 Version 1.0.6 stable (2015-02-12)
 ---------------------------------
 
