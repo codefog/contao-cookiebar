@@ -16,11 +16,12 @@
  * Extension version
  */
 @define('COOKIEBAR_VERSION', '1.0');
-@define('COOKIEBAR_BUILD', '7');
+@define('COOKIEBAR_BUILD', '8');
 
 
 /**
  * Hooks
  */
 $GLOBALS['TL_HOOKS']['generatePage'][] = array('CookieBar', 'addCookiebarScripts');
+$GLOBALS['TL_HOOKS']['getCacheKey'][] = array('CookieBar', 'modifyCacheKey');
 $GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = array('CookieBar', 'addCookiebarBuffer');
