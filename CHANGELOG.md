@@ -1,7 +1,7 @@
 cookiebar Changelog
 ===================
 
-Version 1.0.8 stable (2015-??-??)
+Version 1.0.8 stable (2015-10-21)
 ---------------------------------
 
 ### Fixed
