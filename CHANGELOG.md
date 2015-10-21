@@ -1,6 +1,13 @@
 cookiebar Changelog
 ===================
 
+Version 1.0.8 stable (2015-??-??)
+---------------------------------
+
+### Fixed
+- The cookiebar now works well with cached pages
+
+
 Version 1.0.7 stable (2015-03-21)
 ---------------------------------
 

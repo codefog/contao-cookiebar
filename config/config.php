@@ -23,4 +23,5 @@
  * Hooks
  */
 $GLOBALS['TL_HOOKS']['generatePage'][] = array('CookieBar', 'addCookiebarScripts');
+$GLOBALS['TL_HOOKS']['getCacheKey'][] = array('CookieBar', 'modifyCacheKey');
 $GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = array('CookieBar', 'addCookiebarBuffer');
