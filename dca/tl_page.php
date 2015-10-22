@@ -22,7 +22,7 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = str_replace('createSitemap;'
 /**
  * Add the tl_page subpalette
  */
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['cookiebar_enable'] = 'cookiebar_message,cookiebar_button,cookiebar_position,cookiebar_jumpTo';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['cookiebar_enable'] = 'cookiebar_message,cookiebar_button,cookiebar_position,cookiebar_placement,cookiebar_jumpTo';
 
 
 /**
@@ -65,6 +65,18 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_position'] = array
 	'reference'               => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_position'],
 	'eval'                    => array('tl_class'=>'w50'),
 	'sql'                     => "varchar(8) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_placement'] = array
+(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_placement'],
+	'default'                 => 'body_end',
+	'exclude'                 => true,
+	'inputType'               => 'select',
+	'options'                 => array('body_end', 'before_wrapper'),
+	'reference'               => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_placement'],
+	'eval'                    => array('tl_class'=>'w50'),
+	'sql'                     => "varchar(16) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_button'] = array

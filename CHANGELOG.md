@@ -1,6 +1,13 @@
 cookiebar Changelog
 ===================
 
+Version 1.1.0 stable (????-??-??)
+---------------------------------
+
+### Improved
+- Added the option to determine cookiebar position in DOM structure (#7)
+
+
 Version 1.0.8 stable (2015-10-21)
 ---------------------------------
 
