@@ -16,7 +16,7 @@
  * Extend the tl_page palettes
  */
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'cookiebar_enable';
-$GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = str_replace('createSitemap;', 'createSitemap;{cookiebar_legend},cookiebar_enable;', $GLOBALS['TL_DCA']['tl_page']['palettes']['root']);
+$GLOBALS['TL_DCA']['tl_page']['palettes']['root'] .= ';{cookiebar_legend},cookiebar_enable';
 
 
 /**
