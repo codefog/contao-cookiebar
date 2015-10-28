@@ -8,6 +8,13 @@ Version 1.1.0 stable (????-??-??)
 - Added the option to determine cookiebar position in DOM structure (#7)
 
 
+Version 1.0.9 stable (2015-10-28)
+---------------------------------
+
+### Fixed
+- The fields are now added at the end of tl_page palette (see #8)
+
+
 Version 1.0.8 stable (2015-10-21)
 ---------------------------------
 
