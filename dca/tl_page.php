@@ -41,9 +41,9 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_message'] = array
 (
 	'label'                   => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_message'],
 	'exclude'                 => true,
-	'inputType'               => 'text',
-	'eval'                    => array('mandatory'=>true, 'tl_class'=>'clr long'),
-	'sql'                     => "varchar(255) NOT NULL default ''"
+	'inputType'               => 'textarea',
+	'eval'                    => array('mandatory'=>true, 'tl_class'=>'clr'),
+	'sql'                     => "text NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_jumpTo'] = array
