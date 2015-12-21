@@ -1,6 +1,13 @@
 cookiebar Changelog
 ===================
 
+Version 1.0.10 stable (????-??-??)
+---------------------------------
+
+### Fixed
+- Extended the length of the message field (see #9)
+
+
 Version 1.0.9 stable (2015-10-28)
 ---------------------------------
 
