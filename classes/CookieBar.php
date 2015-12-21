@@ -64,7 +64,12 @@ class CookieBar extends \Frontend
 				}
 			}
 
-			$strContent = str_replace('</body>', $objTemplate->parse() . '</body>', $strContent);
+			// Place the cookiebar in DOM structure
+			if ($objRoot->cookiebar_placement === 'before_wrapper') {
+				$strContent = str_replace('<div id="wrapper">', $objTemplate->parse() . '<div id="wrapper">', $strContent);
+			} else {
+				$strContent = str_replace('</body>', $objTemplate->parse() . '</body>', $strContent);
+			}
 		}
 
 		return $strContent;
