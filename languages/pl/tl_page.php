@@ -33,3 +33,5 @@ $GLOBALS['TL_LANG']['tl_page']['cookiebar_legend'] = 'Informacje o cookie';
  */
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_position']['top']    = 'Na górze strony';
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_position']['bottom'] = 'Na dole strony';
+$GLOBALS['TL_LANG']['tl_page']['cookiebar_placement']['before_wrapper'] = 'Przed #wrapper tag';
+$GLOBALS['TL_LANG']['tl_page']['cookiebar_placement']['body_end']       = 'Przed body Tag';
