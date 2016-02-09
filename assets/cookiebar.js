@@ -13,6 +13,6 @@ var setCookieBar = function(name) {
 	var cookiebar = document.getElementById('cookiebar');
 	var date = new Date();
 	date.setDate(date.getDate() + 365);
-	document.cookie = name + "=1; expires=" + date.toUTCString();
+	document.cookie = name + "=1; expires=" + date.toUTCString() + ';' + 'path=/';
 	cookiebar.parentNode.removeChild(cookiebar);
 }
