@@ -1,6 +1,14 @@
 cookiebar Changelog
 ===================
 
+Version 1.1.1 stable (????-??-??)
+---------------------------------
+
+### Fixed
+- Fixed the issue with cookie path (see #12)
+- Added the missing translations (see #10)
+
+
 Version 1.1.0 stable (2015-12-21)
 ---------------------------------
 
