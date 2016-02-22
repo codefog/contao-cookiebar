@@ -35,3 +35,5 @@ $GLOBALS['TL_LANG']['tl_page']['cookiebar_legend'] = 'Informazioni Cookie';
  */
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_position']['top']    = 'In alto';
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_position']['bottom'] = 'In basso';
+$GLOBALS['TL_LANG']['tl_page']['cookiebar_placement']['before_wrapper'] = 'Prima #wrapper tag';
+$GLOBALS['TL_LANG']['tl_page']['cookiebar_placement']['body_end']       = 'Prima body Tag';
