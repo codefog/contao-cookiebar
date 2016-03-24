@@ -58,8 +58,10 @@ class CookieBar extends \Frontend
 
 				if ($objJump !== null)
 				{
+					$objJump->loadDetails();
+
 					$objTemplate->more = $GLOBALS['TL_LANG']['MSC']['more'];
-					$objTemplate->moreHref = ampersand($this->generateFrontendUrl($objJump->row()));
+					$objTemplate->moreHref = ampersand($this->generateFrontendUrl($objJump->row(), null, $objJump->language));
 					$objTemplate->moreTitle = specialchars($GLOBALS['TL_LANG']['MSC']['more']);
 				}
 			}
