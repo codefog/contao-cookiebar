@@ -1,11 +1,12 @@
 cookiebar Changelog
 ===================
 
-Version 1.1.2 stable (????-??-??)
+Version 1.1.2 stable (2016-11-30)
 ---------------------------------
 
 ### Fixed
 - Fixed the issue with cross-language link (#17)
+- Fixed the issue with search indexing (#21)
 
 
 Version 1.1.1 stable (2016-02-22)
