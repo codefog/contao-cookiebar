@@ -1,6 +1,15 @@
 cookiebar Changelog
 ===================
 
+Version 1.2.0 stable (2017-01-03)
+---------------------------------
+
+### Improved
+- Added the option to combine assets (#18)
+- Make sure the Cookiebar does not extend the total width of the page (#20)
+- Improved the accessibility (#19)
+
+
 Version 1.1.2 stable (2016-11-30)
 ---------------------------------
 

@@ -10,6 +10,7 @@
  */
 
 #cookiebar {
+	box-sizing: border-box;
 	position: fixed;
 	left: 0;
 	width: 100%;
@@ -30,6 +31,10 @@
 	bottom: 0;
 }
 
+#cookiebar-desc {
+	display: inline-block;
+}
+
 #cookiebar span {
 	margin-right: 1em;
 }
@@ -46,7 +51,7 @@
 }
 
 #cookiebar a {
-	margin-left: 1em;
+	margin-right: 1em;
 	color: #ffffff;
 	text-decoration: underline;
 }
