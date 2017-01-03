@@ -27,8 +27,15 @@ class CookieBar extends \Frontend
 	{
 		if ($this->isCookiebarEnabled())
 		{
-			$GLOBALS['TL_CSS'][] = 'system/modules/cookiebar/assets/cookiebar.min.css|all';
-			$GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/cookiebar/assets/cookiebar.min.js';
+            $flag = '';
+
+            // Combine the assets
+            if ($this->getCurrentRootPage()->cookiebar_combineAssets) {
+                $flag = '|static';
+            }
+
+			$GLOBALS['TL_CSS'][] = 'system/modules/cookiebar/assets/cookiebar.min.css|all'.$flag;
+			$GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/cookiebar/assets/cookiebar.min.js'.$flag;
 		}
 	}
 

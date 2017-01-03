@@ -1,6 +1,13 @@
 cookiebar Changelog
 ===================
 
+Version 1.2.0 stable (????-??-??)
+---------------------------------
+
+### Improved
+- Added the option to combine assets (#18)
+
+
 Version 1.1.2 stable (2016-11-30)
 ---------------------------------
 
