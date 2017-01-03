@@ -10,6 +10,7 @@
  */
 
 #cookiebar {
+	box-sizing: border-box;
 	position: fixed;
 	left: 0;
 	width: 100%;

@@ -6,6 +6,7 @@ Version 1.2.0 stable (????-??-??)
 
 ### Improved
 - Added the option to combine assets (#18)
+- Make sure the Cookiebar does not extend the total width of the page (#20)
 
 
 Version 1.1.2 stable (2016-11-30)
