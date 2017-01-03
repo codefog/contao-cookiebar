@@ -1,10 +1,12 @@
 
 <!-- indexer::stop -->
-<div id="cookiebar" class="<?php echo $this->position; ?>">
-	<span><?php echo $this->message; ?></span>
+<div id="cookiebar" class="<?php echo $this->position; ?>" role="complementary" aria-describedby="cookiebar-desc">
+	<div id="cookiebar-desc" aria-live="assertive" role="alert">
+		<span><?php echo $this->message; ?></span>
+		<?php if ($this->more): ?>
+		<a href="<?php echo $this->moreHref; ?>" title="<?php echo $this->moreTitle; ?>"><?php echo $this->more; ?></a>
+		<?php endif; ?>
+	</div>
 	<button onclick="setCookieBar('<?php echo $this->cookie; ?>'); return false;"><?php echo $this->button; ?></button>
-	<?php if ($this->more): ?>
-	<a href="<?php echo $this->moreHref; ?>" title="<?php echo $this->moreTitle; ?>"><?php echo $this->more; ?></a>
-	<?php endif; ?>
 </div>
 <!-- indexer::continue -->

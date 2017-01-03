@@ -1,11 +1,2 @@
-/**
- * cookiebar extension for Contao Open Source CMS
- *
- * Copyright (C) 2011-2015 Codefog
- *
- * @package cookiebar
- * @author  Codefog <http://codefog.pl>
- * @author  Kamil Kuzminski <kamil.kuzminski@codefog.pl>
- * @license LGPL
- */
-#cookiebar{box-sizing:border-box;position:fixed;left:0;width:100%;background-color:#4b4b4b;padding:8px 16px;text-align:center;font-size:13px;color:#fff;line-height:2;z-index:10}#cookiebar.top{top:0}#cookiebar.bottom{bottom:0}#cookiebar span{margin-right:1em}#cookiebar button{height:26px;padding:0 12px;border:0;background-color:#4ea55e;color:#fff;cursor:pointer;font-weight:bold;line-height:26px}#cookiebar a{margin-left:1em;color:#fff;text-decoration:underline}#cookiebar a:hover{text-decoration:none}
+/* cookiebar extension for Contao Open Source CMS, Copyright (C) 2011-2017 Codefog */
+#cookiebar a,#cookiebar span{margin-right:1em}#cookiebar{box-sizing:border-box;position:fixed;left:0;width:100%;background-color:#4b4b4b;padding:8px 16px;text-align:center;font-size:13px;color:#fff;line-height:2;z-index:10}#cookiebar.top{top:0}#cookiebar.bottom{bottom:0}#cookiebar-desc{display:inline-block}#cookiebar button{height:26px;padding:0 12px;border:none;background-color:#4ea55e;color:#fff;cursor:pointer;font-weight:700;line-height:26px}#cookiebar a{color:#fff;text-decoration:underline}#cookiebar a:hover{text-decoration:none}
