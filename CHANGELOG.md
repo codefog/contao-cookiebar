@@ -1,6 +1,13 @@
 cookiebar Changelog
 ===================
 
+Version 1.3.0 stable (2017-01-05)
+---------------------------------
+
+### Improved
+- Added the Czech language (thanks to Jan Kout)
+
+
 Version 1.2.0 stable (2017-01-03)
 ---------------------------------
 
