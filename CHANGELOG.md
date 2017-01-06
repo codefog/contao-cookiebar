@@ -1,6 +1,13 @@
 cookiebar Changelog
 ===================
 
+Version 1.3.1 stable (2017-01-06)
+---------------------------------
+
+### Fixed
+- The "more" link was always displayed in English language (#23)
+
+
 Version 1.3.0 stable (2017-01-05)
 ---------------------------------
 
