@@ -15,10 +15,14 @@
 /**
  * Register the classes
  */
-ClassLoader::addClasses(array
-(
-	'Contao\CookieBar' => 'system/modules/cookiebar/classes/CookieBar.php'
-));
+if (class_exists('ClassLoader')) {
+    ClassLoader::addClasses(
+        array
+        (
+            'Contao\CookieBar' => 'system/modules/cookiebar/classes/CookieBar.php'
+        )
+    );
+}
 
 
 /**
