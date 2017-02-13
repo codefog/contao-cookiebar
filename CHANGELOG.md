@@ -1,6 +1,13 @@
 cookiebar Changelog
 ===================
 
+Version 1.3.2 stable (????-??-??)
+---------------------------------
+
+### Fixed
+- Make the extension compatible with Contao 4 (#26)
+
+
 Version 1.3.1 stable (2017-01-06)
 ---------------------------------
 
