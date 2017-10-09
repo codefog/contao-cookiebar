@@ -21,6 +21,8 @@ $GLOBALS['TL_LANG']['tl_page']['cookiebar_message']  = array('Cookies Informatio
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_jumpTo']   = array('Details Seite', 'Hier können Sie die Seite wählen, welche mehr Informationen über die Cookies enthält.');
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_position'] = array('Cookiebar Position', 'Hier können Sie die Position der Cookiebar wählen.');
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_button']   = array('Button Label', 'Bitte geben Sie das Label des Buttons ein (z.B. <em>Akzeptieren</em>).');
+$GLOBALS['TL_LANG']['tl_page']['cookiebar_includeCss']   = array('Standard-CSS einbinden', 'Die Cookiebar-Standard-Styles einbinden.');
+
 
 
 /**
