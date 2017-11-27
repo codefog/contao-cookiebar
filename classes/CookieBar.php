@@ -118,32 +118,6 @@ class CookieBar extends \Frontend
         return false;
     }
 
-
-    /**
-     * Modify the cached key
-     *
-     * @param string $key
-     *
-     * @return string
-     */
-    public function modifyCacheKey($key)
-    {
-        if ($GLOBALS['objPage']->rootId) {
-            // The page is being cached
-            $rootPage = \PageModel::findByPk($GLOBALS['objPage']->rootId);
-        } else {
-            // Page loaded from cache, global $objPage not available
-            $rootPage = \PageModel::findFirstPublishedRootByHostAndLanguage(\Environment::get('host'), $GLOBALS['TL_LANGUAGE']);
-        }
-
-        if ($rootPage !== null) {
-            $key .= $this->isCookiebarEnabled($rootPage) ? '_cookiebar' : '';
-        }
-
-        return $key;
-    }
-
-
     /**
      * Check whether the cookiebar is enabled and should be displayed
      *
