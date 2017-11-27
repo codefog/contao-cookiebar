@@ -22,6 +22,12 @@
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['generatePage'][] = array('CookieBar', 'addCookiebarScripts');
-$GLOBALS['TL_HOOKS']['getCacheKey'][] = array('CookieBar', 'modifyCacheKey');
-$GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = array('CookieBar', 'addCookiebarBuffer');
+$GLOBALS['TL_HOOKS']['generatePage'][] = ['CookieBar', 'addCookiebarScripts'];
+
+// not longer supported in contao 4
+if (version_compare(VERSION, '4.0', '<')) {
+    $GLOBALS['TL_HOOKS']['getCacheKey'][] = ['CookieBar', 'modifyCacheKey'];
+}
+
+$GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = ['CookieBar', 'addCookiebarBuffer'];
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][]      = ['CookieBar', 'replaceCookiebarInsertTags'];
