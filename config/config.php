@@ -22,6 +22,6 @@
 /**
  * Hooks
  */
-$GLOBALS['TL_HOOKS']['generatePage'][]           = ['CookieBar', 'addCookiebarScripts'];
+$GLOBALS['TL_HOOKS']['generatePage'][] = ['CookieBar', 'addCookiebarScripts'];
 $GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = ['CookieBar', 'addCookiebarBuffer'];
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][]      = ['CookieBar', 'replaceCookiebarInsertTags'];
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = ['CookieBar', 'replaceCookiebarInsertTags'];

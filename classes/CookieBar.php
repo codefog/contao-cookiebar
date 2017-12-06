@@ -20,147 +20,150 @@ namespace Contao;
 class CookieBar extends \Frontend
 {
 
-    /**
-     * Add the cookie information scripts
-     */
-    public function addCookiebarScripts()
-    {
-        if ($this->isCookiebarEnabled()) {
-            $flag = '';
+	/**
+	 * Add the cookie information scripts
+	 */
+	public function addCookiebarScripts()
+	{
+		if ($this->isCookiebarEnabled())
+		{
+			$flag = '';
 
-            // Combine the assets
-            if ($this->getCurrentRootPage()->cookiebar_combineAssets) {
-                $flag = '|static';
-            }
+			// Combine the assets
+			if ($this->getCurrentRootPage()->cookiebar_combineAssets) {
+				$flag = '|static';
+			}
 
-            $GLOBALS['TL_CSS'][]        = 'system/modules/cookiebar/assets/cookiebar.min.css|all' . $flag;
-            $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/cookiebar/assets/cookiebar.min.js' . $flag;
-        }
-    }
-
-
-    /**
-     * Add the cookie HTML buffer
-     * @param string
-     * @return string
-     */
-    public function addCookiebarBuffer($strContent)
-    {
-        if ($this->isCookiebarEnabled()) {
-            $objRoot = $this->getCurrentRootPage();
-
-            // Place the cookiebar in DOM structure
-            if ($objRoot->cookiebar_placement === 'before_wrapper') {
-                $strContent = str_replace('<div id="wrapper">', '{{cookie_bar|uncached}}<div id="wrapper">', $strContent);
-            } else {
-                $strContent = str_replace('</body>', '{{cookie_bar|uncached}}</body>', $strContent);
-            }
-        }
-
-        return $strContent;
-    }
-
-    /**
-     * Generate the cookie bar template
-     *
-     * @return \Contao\FrontendTemplate The cookie bar template
-     */
-    public function generateCookieBar()
-    {
-        $objRoot     = $this->getCurrentRootPage();
-        $objTemplate = new \FrontendTemplate('cookiebar_default');
-
-        $objTemplate->message  = $objRoot->cookiebar_message;
-        $objTemplate->position = $objRoot->cookiebar_position;
-        $objTemplate->button   = $objRoot->cookiebar_button;
-        $objTemplate->cookie   = $this->getCookiebarName($objRoot);
-        $objTemplate->more     = '';
-
-        // Add the "more" link
-        if ($objRoot->cookiebar_jumpTo > 0) {
-            $objJump = \PageModel::findByPk($objRoot->cookiebar_jumpTo);
-
-            if ($objJump !== null) {
-                $objJump->loadDetails();
-
-                $objTemplate->more      = $GLOBALS['TL_LANG']['MSC']['cookiebar.more'];
-                $objTemplate->moreHref  = ampersand($this->generateFrontendUrl($objJump->row(), null, $objJump->language));
-                $objTemplate->moreTitle = specialchars($GLOBALS['TL_LANG']['MSC']['cookiebar.more']);
-            }
-        }
-
-        return $objTemplate;
-    }
-
-    /**
-     * Add additional tags
-     *
-     * @param $strTag
-     * @param $blnCache
-     * @param $strCache
-     * @param $flags
-     * @param $tags
-     * @param $arrCache
-     * @param $index
-     * @param $count
-     *
-     * @return mixed Return false, if the tag was not replaced, otherwise return the value of the replaced tag
-     */
-    public function replaceCookiebarInsertTags($strTag, $blnCache, $strCache, $flags, $tags, $arrCache, $index, $count)
-    {
-        $elements = explode('::', $strTag);
-
-        switch ($elements[0]) {
-            case 'cookie_bar':
-                return $this->generateCookieBar()->parse();
-        }
-
-        return false;
-    }
-
-    /**
-     * Check whether the cookiebar is enabled and should be displayed
-     *
-     * @param \PageModel $rootPage
-     *
-     * @return boolean
-     */
-    protected function isCookiebarEnabled(\PageModel $rootPage = null)
-    {
-        $objRoot = ($rootPage !== null) ? $rootPage : $this->getCurrentRootPage();
-
-        if ($objRoot->cookiebar_enable && !\Input::cookie($this->getCookiebarName($objRoot))) {
-            return true;
-        }
-
-        return false;
-    }
+			$GLOBALS['TL_CSS'][] = 'system/modules/cookiebar/assets/cookiebar.min.css|all'.$flag;
+			$GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/cookiebar/assets/cookiebar.min.js'.$flag;
+		}
+	}
 
 
-    /**
-     * Get the current root page and return it
-     * @return object
-     */
-    protected function getCurrentRootPage()
-    {
-        global $objPage;
-        $strKey = 'COOKIEBAR_ROOT_' . $objPage->rootId;
 
-        if (!\Cache::has($strKey)) {
-            \Cache::set($strKey, \PageModel::findByPk($objPage->rootId));
-        }
+         /**
+	 * Add the cookie HTML buffer
+	 * @param string
+	 * @return string
+	 */
+	public function addCookiebarBuffer($strContent)
+	{
+		if ($this->isCookiebarEnabled()) 
+		{
+			$objRoot = $this->getCurrentRootPage();
 
-        return \Cache::get($strKey);
-    }
+			// Place the cookiebar in DOM structure
+			if ($objRoot->cookiebar_placement === 'before_wrapper') {
+				$strContent = str_replace('<div id="wrapper">', '{{cookie_bar|uncached}}<div id="wrapper">', $strContent);
+			} else {
+				$strContent = str_replace('</body>', '{{cookie_bar|uncached}}</body>', $strContent);
+			}
+		}
+
+		return $strContent;
+	}
+
+         /**
+         * Generate the cookie bar template
+         *
+         * @return \Contao\FrontendTemplate The cookie bar template
+         */
+	public function generateCookieBar()
+	{
+		$objRoot     = $this->getCurrentRootPage();
+		$objTemplate = new \FrontendTemplate('cookiebar_default');
+
+		$objTemplate->message  = $objRoot->cookiebar_message;
+		$objTemplate->position = $objRoot->cookiebar_position;
+		$objTemplate->button   = $objRoot->cookiebar_button;
+		$objTemplate->cookie   = $this->getCookiebarName($objRoot);
+		$objTemplate->more     = '';
+
+		// Add the "more" link
+		if ($objRoot->cookiebar_jumpTo > 0) {
+			$objJump = \PageModel::findByPk($objRoot->cookiebar_jumpTo);
+
+			if ($objJump !== null) {
+				$objJump->loadDetails();
+
+				$objTemplate->more      = $GLOBALS['TL_LANG']['MSC']['cookiebar.more'];
+				$objTemplate->moreHref  = ampersand($this->generateFrontendUrl($objJump->row(), null, $objJump->language));
+				$objTemplate->moreTitle = specialchars($GLOBALS['TL_LANG']['MSC']['cookiebar.more']);
+			}
+		}
+
+		return $objTemplate;
+	}
+
+	/**
+	* Add additional tags
+	*
+	* @param $strTag
+	* @param $blnCache
+	* @param $strCache
+	* @param $flags
+	* @param $tags
+	* @param $arrCache
+	* @param $index
+	* @param $count
+	*
+	* @return mixed Return false, if the tag was not replaced, otherwise return the value of the replaced tag
+	*/
+	public function replaceCookiebarInsertTags($strTag, $blnCache, $strCache, $flags, $tags, $arrCache, $index, $count)
+	{
+		$elements = explode('::', $strTag);
+
+		switch ($elements[0]) {
+			case 'cookie_bar':
+				return $this->generateCookieBar()->parse();
+		}
+
+		return false;
+	}
+
+	/**
+	* Check whether the cookiebar is enabled and should be displayed
+	*
+	* @param \PageModel $rootPage
+	*
+	* @return boolean
+	*/
+	protected function isCookiebarEnabled(\PageModel $rootPage = null)
+	{
+		$objRoot = ($rootPage !== null) ? $rootPage : $this->getCurrentRootPage();
+
+		if ($objRoot->cookiebar_enable && !\Input::cookie($this->getCookiebarName($objRoot))) {
+			return true;
+		}
+
+		return false;
+	}
 
 
-    /**
-     * Return the cookie name
-     * @param object
-     * @return string
-     */
-    protected function getCookiebarName($objPage)
-    {
-        return 'COOKIEBAR_' . $objPage->id;
-    }
+	/**
+	* Get the current root page and return it
+	* @return object
+	*/
+	protected function getCurrentRootPage()
+	{
+		global $objPage;
+		$strKey = 'COOKIEBAR_ROOT_' . $objPage->rootId;
+
+		if (!\Cache::has($strKey)) {
+			\Cache::set($strKey, \PageModel::findByPk($objPage->rootId));
+		}
+
+		return \Cache::get($strKey);
+	}
+
+
+	/**
+	* Return the cookie name
+	* @param object
+	* @return string
+	*/
+	protected function getCookiebarName($objPage)
+	{
+		return 'COOKIEBAR_' . $objPage->id;
+	}
 }
