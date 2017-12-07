@@ -94,19 +94,16 @@ class CookieBar extends \Frontend
     }
 
     /**
-     * Add additional tags
+     * Replace the insert tags
      *
-     * @param $strTag
+     * @param string $tag
      *
-     * @return mixed Return false, if the tag was not replaced, otherwise return the value of the replaced tag
+     * @return string|false
      */
-    public function replaceCookiebarInsertTags($strTag)
+    public function replaceInsertTags($tag)
     {
-        $elements = explode('::', $strTag);
-
-        switch ($elements[0]) {
-            case 'cookie_bar':
-                return $this->generateCookieBar()->parse();
+        if ($tag === 'cookie_bar') {
+            return $this->generateCookieBar()->parse();
         }
 
         return false;
