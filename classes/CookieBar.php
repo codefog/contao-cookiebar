@@ -20,13 +20,12 @@ namespace Contao;
 class CookieBar extends \Frontend
 {
 
-	/**
-	 * Add the cookie information scripts
-	 */
-	public function addCookiebarScripts()
-	{
-		if ($this->isCookiebarEnabled())
-		{
+    /**
+     * Add the cookie information scripts
+     */
+    public function addCookiebarScripts()
+    {
+        if ($this->isCookiebarEnabled()) {
             $flag = '';
 
             // Combine the assets
@@ -34,149 +33,125 @@ class CookieBar extends \Frontend
                 $flag = '|static';
             }
 
-			if ($this->shouldIncludeCss()) {
-				$GLOBALS['TL_CSS'][] = 'system/modules/cookiebar/assets/cookiebar.min.css|all'.$flag;
-			}
+            $GLOBALS['TL_CSS'][] = 'system/modules/cookiebar/assets/cookiebar.min.css|all' . $flag;
+            $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/cookiebar/assets/cookiebar.min.js' . $flag;
+        }
+    }
 
-			$GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/cookiebar/assets/cookiebar.min.js'.$flag;
-		}
-	}
+    /**
+     * Add the cookie HTML buffer
+     *
+     * @param string
+     *
+     * @return string
+     */
+    public function addCookiebarBuffer($strContent)
+    {
+        if ($this->isCookiebarEnabled()) {
+            $objRoot = $this->getCurrentRootPage();
 
+            // Place the cookiebar in DOM structure
+            if ($objRoot->cookiebar_placement === 'before_wrapper') {
+                $strContent = str_replace('<div id="wrapper">', '{{cookie_bar|uncached}}<div id="wrapper">', $strContent);
+            } else {
+                $strContent = str_replace('</body>', '{{cookie_bar|uncached}}</body>', $strContent);
+            }
+        }
 
-	/**
-	 * Add the cookie HTML buffer
-	 * @param string
-	 * @return string
-	 */
-	public function addCookiebarBuffer($strContent)
-	{
-		if ($this->isCookiebarEnabled())
-		{
-			$objRoot = $this->getCurrentRootPage();
-			$objTemplate = new \FrontendTemplate('cookiebar_default');
+        return $strContent;
+    }
 
-			$objTemplate->message = $objRoot->cookiebar_message;
-			$objTemplate->position = $objRoot->cookiebar_position;
-			$objTemplate->button = $objRoot->cookiebar_button;
-			$objTemplate->cookie = $this->getCookiebarName($objRoot);
-			$objTemplate->more = '';
+    /**
+     * Generate the cookie bar template
+     *
+     * @return \Contao\FrontendTemplate The cookie bar template
+     */
+    public function generateCookieBar()
+    {
+        $objRoot = $this->getCurrentRootPage();
+        $objTemplate = new \FrontendTemplate('cookiebar_default');
 
-			// Add the "more" link
-			if ($objRoot->cookiebar_jumpTo > 0)
-			{
-				$objJump = \PageModel::findByPk($objRoot->cookiebar_jumpTo);
+        $objTemplate->message = $objRoot->cookiebar_message;
+        $objTemplate->position = $objRoot->cookiebar_position;
+        $objTemplate->button = $objRoot->cookiebar_button;
+        $objTemplate->cookie = $this->getCookiebarName($objRoot);
+        $objTemplate->more = '';
 
-				if ($objJump !== null)
-				{
-					$objJump->loadDetails();
+        // Add the "more" link
+        if ($objRoot->cookiebar_jumpTo > 0) {
+            $objJump = \PageModel::findByPk($objRoot->cookiebar_jumpTo);
 
-					$objTemplate->more = $GLOBALS['TL_LANG']['MSC']['cookiebar.more'];
-					$objTemplate->moreHref = ampersand($this->generateFrontendUrl($objJump->row(), null, $objJump->language));
-					$objTemplate->moreTitle = specialchars($GLOBALS['TL_LANG']['MSC']['cookiebar.more']);
-				}
-			}
+            if ($objJump !== null) {
+                $objJump->loadDetails();
 
-			// Place the cookiebar in DOM structure
-			if ($objRoot->cookiebar_placement === 'before_wrapper') {
-				$strContent = str_replace('<div id="wrapper">', $objTemplate->parse() . '<div id="wrapper">', $strContent);
-			} else {
-				$strContent = str_replace('</body>', $objTemplate->parse() . '</body>', $strContent);
-			}
-		}
+                $objTemplate->more = $GLOBALS['TL_LANG']['MSC']['cookiebar.more'];
+                $objTemplate->moreHref = ampersand($this->generateFrontendUrl($objJump->row(), null, $objJump->language));
+                $objTemplate->moreTitle = specialchars($GLOBALS['TL_LANG']['MSC']['cookiebar.more']);
+            }
+        }
 
-		return $strContent;
-	}
+        return $objTemplate;
+    }
 
+    /**
+     * Replace the insert tags
+     *
+     * @param string $tag
+     *
+     * @return string|false
+     */
+    public function replaceCookiebarInsertTags($tag)
+    {
+        if ($tag === 'cookie_bar') {
+            return $this->generateCookieBar()->parse();
+        }
 
-	/**
-	 * Modify the cached key
-	 *
-	 * @param string $key
-	 *
-	 * @return string
-	 */
-	public function modifyCacheKey($key)
-	{
-		if ($GLOBALS['objPage']->rootId) {
-			// The page is being cached
-			$rootPage = \PageModel::findByPk($GLOBALS['objPage']->rootId);
-		} else {
-			// Page loaded from cache, global $objPage not available
-			$rootPage = \PageModel::findFirstPublishedRootByHostAndLanguage(\Environment::get('host'), $GLOBALS['TL_LANGUAGE']);
-		}
+        return false;
+    }
 
-		if ($rootPage !== null) {
-			$key .= $this->isCookiebarEnabled($rootPage) ? '_cookiebar' : '';
-		}
+    /**
+     * Check whether the cookiebar is enabled and should be displayed
+     *
+     * @param \PageModel $rootPage
+     *
+     * @return boolean
+     */
+    protected function isCookiebarEnabled(\PageModel $rootPage = null)
+    {
+        $objRoot = ($rootPage !== null) ? $rootPage : $this->getCurrentRootPage();
 
-		return $key;
-	}
+        if ($objRoot->cookiebar_enable && !\Input::cookie($this->getCookiebarName($objRoot))) {
+            return true;
+        }
 
+        return false;
+    }
 
-	/**
-	 * Check whether the cookiebar is enabled and should be displayed
-	 *
-	 * @param \PageModel $rootPage
-	 *
-	 * @return boolean
-	 */
-	protected function isCookiebarEnabled(\PageModel $rootPage = null)
-	{
-		$objRoot = ($rootPage !== null) ? $rootPage : $this->getCurrentRootPage();
+    /**
+     * Get the current root page and return it
+     * @return object
+     */
+    protected function getCurrentRootPage()
+    {
+        global $objPage;
+        $strKey = 'COOKIEBAR_ROOT_' . $objPage->rootId;
 
-		if ($objRoot->cookiebar_enable && !\Input::cookie($this->getCookiebarName($objRoot)))
-		{
-			return true;
-		}
+        if (!\Cache::has($strKey)) {
+            \Cache::set($strKey, \PageModel::findByPk($objPage->rootId));
+        }
 
-		return false;
-	}
+        return \Cache::get($strKey);
+    }
 
-	/**
-	 * Check whether the cookiebar default styles should be added
-	 *
-	 * @param \PageModel $rootPage
-	 *
-	 * @return boolean
-	 */
-	protected function shouldIncludeCss(\PageModel $rootPage = null)
-	{
-		$objRoot = ($rootPage !== null) ? $rootPage : $this->getCurrentRootPage();
-
-		if ($objRoot->cookiebar_includeCss)
-		{
-			return true;
-		}
-
-		return false;
-	}
-
-
-	/**
-	 * Get the current root page and return it
-	 * @return object
-	 */
-	protected function getCurrentRootPage()
-	{
-		global $objPage;
-		$strKey = 'COOKIEBAR_ROOT_' . $objPage->rootId;
-
-		if (!\Cache::has($strKey))
-		{
-			\Cache::set($strKey, \PageModel::findByPk($objPage->rootId));
-		}
-
-		return \Cache::get($strKey);
-	}
-
-
-	/**
-	 * Return the cookie name
-	 * @param object
-	 * @return string
-	 */
-	protected function getCookiebarName($objPage)
-	{
-		return 'COOKIEBAR_' . $objPage->id;
-	}
+    /**
+     * Return the cookie name
+     *
+     * @param object
+     *
+     * @return string
+     */
+    protected function getCookiebarName($objPage)
+    {
+        return 'COOKIEBAR_' . $objPage->id;
+    }
 }
