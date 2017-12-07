@@ -1,6 +1,12 @@
 cookiebar Changelog
 ===================
 
+Version 1.3.3 stable (2017-11-27)
+---------------------------------
+
+### Fixed
+- Prevent cookie bar caching while page cache is enabled in Contao 4
+
 Version 1.3.2 stable (2017-02-13)
 ---------------------------------
 
