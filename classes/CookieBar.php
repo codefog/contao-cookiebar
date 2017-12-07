@@ -100,7 +100,7 @@ class CookieBar extends \Frontend
      *
      * @return string|false
      */
-    public function replaceInsertTags($tag)
+    public function replaceCookiebarInsertTags($tag)
     {
         if ($tag === 'cookie_bar') {
             return $this->generateCookieBar()->parse();
