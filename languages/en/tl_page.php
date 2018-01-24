@@ -27,6 +27,10 @@ $GLOBALS['TL_LANG']['tl_page']['cookiebar_jumpTo']        = [
     'Details page',
     'Here you can choose the page with more information about the cookies.',
 ];
+$GLOBALS['TL_LANG']['tl_page']['cookiebar_url']        = [
+    'Details URL',
+    'Here you can enter the URL with more information about the cookies. This setting will override the above "details page" one!',
+];
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_position']      = ['Bar position', 'Here you can choose the bar position.'];
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_placement']     = [
     'Bar placement in DOM',

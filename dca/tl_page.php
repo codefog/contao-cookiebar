@@ -22,7 +22,7 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] .= ';{cookiebar_legend},cookie
 /**
  * Add the tl_page subpalette
  */
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['cookiebar_enable'] = 'cookiebar_message,cookiebar_button,cookiebar_position,cookiebar_placement,cookiebar_combineAssets,cookiebar_includeCss,cookiebar_jumpTo';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['cookiebar_enable'] = 'cookiebar_message,cookiebar_button,cookiebar_position,cookiebar_placement,cookiebar_combineAssets,cookiebar_includeCss,cookiebar_jumpTo,cookiebar_url';
 
 
 /**
@@ -53,6 +53,15 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_jumpTo'] = array
 	'inputType'               => 'pageTree',
 	'eval'                    => array('fieldType'=>'radio', 'tl_class'=>'clr'),
 	'sql'                     => "int(10) unsigned NOT NULL default '0'"
+);
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_url'] = array
+(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_url'],
+	'exclude'                 => true,
+	'inputType'               => 'text',
+	'eval'                    => array('decodeEntities'=>true, 'tl_class'=>'clr'),
+	'sql'                     => "varchar(255) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_position'] = array
