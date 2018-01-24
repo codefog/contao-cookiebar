@@ -94,6 +94,12 @@ class CookieBar extends \Frontend
             }
         }
 
+        // Overwrite the "more" link title
+        if ($objRoot->cookiebar_link) {
+            $objTemplate->more = $objRoot->cookiebar_link;
+            $objTemplate->moreTitle = specialchars($objRoot->cookiebar_link);
+        }
+
         return $objTemplate;
     }
 

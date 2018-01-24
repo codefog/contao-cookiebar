@@ -40,13 +40,17 @@ $GLOBALS['TL_LANG']['tl_page']['cookiebar_button']        = [
     'Button label',
     'Please enter the button label (e.g. <em>Accept</em>).',
 ];
+$GLOBALS['TL_LANG']['tl_page']['cookiebar_link']        = [
+    'Link title',
+    'Here you can enter a custom link title (e.g. <em>Read more</em>).',
+];
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_combineAssets'] = [
     'Combine assets',
     'Adds the cookiebar CSS and JS assets to the combined file.',
 ];
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_includeCss']   = [
     'Default CSS',
-    'Include Cookiebar default Styles.'
+    'Include Cookiebar default styles.'
 ];
 
 

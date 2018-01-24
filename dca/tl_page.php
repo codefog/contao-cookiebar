@@ -22,7 +22,7 @@ $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] .= ';{cookiebar_legend},cookie
 /**
  * Add the tl_page subpalette
  */
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['cookiebar_enable'] = 'cookiebar_message,cookiebar_button,cookiebar_position,cookiebar_placement,cookiebar_combineAssets,cookiebar_includeCss,cookiebar_jumpTo,cookiebar_url';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['cookiebar_enable'] = 'cookiebar_message,cookiebar_button,cookiebar_link,cookiebar_position,cookiebar_placement,cookiebar_combineAssets,cookiebar_includeCss,cookiebar_jumpTo,cookiebar_url';
 
 
 /**
@@ -94,6 +94,15 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_button'] = array
 	'exclude'                 => true,
 	'inputType'               => 'text',
 	'eval'                    => array('mandatory'=>true, 'maxlength'=>128, 'tl_class'=>'w50'),
+	'sql'                     => "varchar(128) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_link'] = array
+(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_link'],
+	'exclude'                 => true,
+	'inputType'               => 'text',
+	'eval'                    => array('maxlength'=>128, 'tl_class'=>'w50'),
 	'sql'                     => "varchar(128) NOT NULL default ''"
 );
 
