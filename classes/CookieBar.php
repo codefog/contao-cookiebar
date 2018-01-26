@@ -78,7 +78,11 @@ class CookieBar extends \Frontend
         $objTemplate->more = '';
 
         // Add the "more" link
-        if ($objRoot->cookiebar_jumpTo > 0) {
+        if ($objRoot->cookiebar_url) {
+            $objTemplate->more = $GLOBALS['TL_LANG']['MSC']['cookiebar.more'];
+            $objTemplate->moreHref = ampersand($objRoot->cookiebar_url);
+            $objTemplate->moreTitle = specialchars($GLOBALS['TL_LANG']['MSC']['cookiebar.more']);
+        } elseif ($objRoot->cookiebar_jumpTo > 0) {
             $objJump = \PageModel::findByPk($objRoot->cookiebar_jumpTo);
 
             if ($objJump !== null) {
@@ -88,6 +92,12 @@ class CookieBar extends \Frontend
                 $objTemplate->moreHref = ampersand($this->generateFrontendUrl($objJump->row(), null, $objJump->language));
                 $objTemplate->moreTitle = specialchars($GLOBALS['TL_LANG']['MSC']['cookiebar.more']);
             }
+        }
+
+        // Overwrite the "more" link title
+        if ($objRoot->cookiebar_link) {
+            $objTemplate->more = $objRoot->cookiebar_link;
+            $objTemplate->moreTitle = specialchars($objRoot->cookiebar_link);
         }
 
         return $objTemplate;
