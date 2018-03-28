@@ -33,7 +33,10 @@ class CookieBar extends \Frontend
                 $flag = '|static';
             }
 
-            $GLOBALS['TL_CSS'][] = 'system/modules/cookiebar/assets/cookiebar.min.css|all' . $flag;
+            if ($this->shouldIncludeCss()) {
+                $GLOBALS['TL_CSS'][] = 'system/modules/cookiebar/assets/cookiebar.min.css|all'.$flag;
+            }
+
             $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/cookiebar/assets/cookiebar.min.js' . $flag;
         }
     }
@@ -131,6 +134,24 @@ class CookieBar extends \Frontend
         $objRoot = ($rootPage !== null) ? $rootPage : $this->getCurrentRootPage();
 
         if ($objRoot->cookiebar_enable && !\Input::cookie($this->getCookiebarName($objRoot))) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Check whether the cookiebar default styles should be added
+     *
+     * @param \PageModel $rootPage
+     *
+     * @return boolean
+     */
+    protected function shouldIncludeCss(\PageModel $rootPage = null)
+    {
+        $objRoot = ($rootPage !== null) ? $rootPage : $this->getCurrentRootPage();
+
+        if ($objRoot->cookiebar_includeCss) {
             return true;
         }
 
