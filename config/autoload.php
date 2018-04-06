@@ -21,5 +21,5 @@ if (class_exists('NamespaceClassLoader')) {
  * Register the templates
  */
 TemplateLoader::addFiles([
-    'cookiebar_default' => 'system/modules/cookiebar/templates',
+    'cookiebar' => 'system/modules/cookiebar/templates',
 ]);

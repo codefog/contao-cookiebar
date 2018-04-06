@@ -19,13 +19,14 @@ class CookiebarGenerator
     /**
      * Create the cookie bar template.
      *
-     * @param array $data
+     * @param array  $data
+     * @param string $name
      *
      * @return FrontendTemplate
      */
-    public function createTemplate(array $data)
+    public function createTemplate(array $data, $name = 'cookiebar')
     {
-        $template = new FrontendTemplate('cookiebar_default');
+        $template = new FrontendTemplate($name);
         $this->setBasicData($template, $data);
         $this->setMoreLinkData($template, $data);
 
