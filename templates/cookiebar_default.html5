@@ -18,7 +18,7 @@ $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/cookiebar/assets/dist/cookiebar.mi
         <span class="cookiebar__message"><?= $this->message ?></span>
 
         <?php if ($this->more): ?>
-            <a href="<?= ampersand($this->more['url']) ?>" class="cookiebar__link" title="<?= specialchars($this->more['label']) ?>"><?= $this->more['label'] ?></a>
+            <a href="<?= $this->more['url'] ?>" class="cookiebar__link" title="<?= specialchars($this->more['label']) ?>"><?= $this->more['label'] ?></a>
         <?php endif ?>
     </div>
 

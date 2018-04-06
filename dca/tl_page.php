@@ -16,7 +16,7 @@
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'cookiebar_enable';
 $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] .= ';{cookiebar_legend},cookiebar_enable';
 
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['cookiebar_enable'] = 'cookiebar_message,cookiebar_button,cookiebar_link,cookiebar_position,cookiebar_placement,cookiebar_combineAssets,cookiebar_includeCss,cookiebar_jumpTo,cookiebar_url';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['cookiebar_enable'] = 'cookiebar_message,cookiebar_button,cookiebar_url,cookiebar_link,cookiebar_position,cookiebar_placement,cookiebar_combineAssets,cookiebar_includeCss';
 
 /*
  * Add the fields
@@ -25,31 +25,28 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_enable'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_enable'],
     'exclude' => true,
     'inputType' => 'checkbox',
-    'eval' => ['submitOnChange' => true, 'tl_class' => 'w50'],
+    'eval' => ['submitOnChange' => true, 'tl_class' => 'clr'],
     'sql' => "char(1) NOT NULL default ''",
 ];
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_message'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_message'],
     'exclude' => true,
-    'inputType' => 'textarea',
-    'eval' => ['mandatory' => true, 'tl_class' => 'clr'],
+    'inputType' => 'text',
+    'eval' => ['mandatory' => true, 'tl_class' => 'w50'],
     'sql' => 'text NULL',
-];
-
-$GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_jumpTo'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_jumpTo'],
-    'exclude' => true,
-    'inputType' => 'pageTree',
-    'eval' => ['fieldType' => 'radio', 'tl_class' => 'clr'],
-    'sql' => "int(10) unsigned NOT NULL default '0'",
 ];
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_url'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_url'],
     'exclude' => true,
     'inputType' => 'text',
-    'eval' => ['decodeEntities' => true, 'tl_class' => 'clr'],
+    'eval' => ['rgxp'=>'url', 'decodeEntities' => true, 'fieldType'=>'radio', 'tl_class' => 'w50 wizard'],
+    'wizard' => [
+        function (\Contao\DataContainer $dc) {
+            return ' <a href="contao/page.php?do=' . \Contao\Input::get('do') . '&amp;table=' . $dc->table . '&amp;field=' . $dc->field . '&amp;value=' . rawurlencode(str_replace(['{{link_url::', '}}'], '', $dc->value)) . '" title="' . specialchars($GLOBALS['TL_LANG']['MSC']['pagepicker']) . '" onclick="Backend.getScrollOffset();Backend.openModalSelector({\'width\':768,\'title\':\'' . specialchars(str_replace("'", "\\'", $GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field]['label'][0])) . '\',\'url\':this.href,\'id\':\'' . $dc->field . '\',\'tag\':\'ctrl_'. $dc->field . ((\Contao\Input::get('act') == 'editAll') ? '_' . $dc->id : '') . '\',\'self\':this});return false">' . \Contao\Image::getHtml('pickpage.gif', $GLOBALS['TL_LANG']['MSC']['pagepicker'], 'style="vertical-align:top;cursor:pointer"') . '</a>';
+        }
+    ],
     'sql' => "varchar(255) NOT NULL default ''",
 ];
 

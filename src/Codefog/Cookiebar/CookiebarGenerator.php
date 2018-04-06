@@ -13,7 +13,6 @@
 namespace Codefog\Cookiebar;
 
 use Contao\FrontendTemplate;
-use Contao\PageModel;
 
 class CookiebarGenerator
 {
@@ -61,23 +60,12 @@ class CookiebarGenerator
      */
     private function setMoreLinkData(FrontendTemplate $template, array $data)
     {
-        $url = null;
-
-        // Use the URL that was provided explicitly
-        if ($data['cookiebar_url']) {
-            $url = $data['cookiebar_url'];
-        } elseif ($data['cookiebar_jumpTo'] > 0 && null !== ($targetPage = PageModel::findByPk($data['cookiebar_jumpTo']))) {
-            // Use the selected page URL
-            $url = $targetPage->getFrontendUrl();
-        }
-
         $template->more = null;
 
-        // Set the template data
-        if (null !== $url) {
+        if ($data['cookiebar_url']) {
             $template->more = [
                 'label' => $data['cookiebar_link'] ?: $GLOBALS['TL_LANG']['MSC']['cookiebar.more'],
-                'url' => $url,
+                'url' => $data['cookiebar_url'],
             ];
         }
     }
