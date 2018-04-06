@@ -13,7 +13,7 @@ $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/cookiebar/assets/dist/cookiebar.mi
 ?>
 
 <!-- indexer::stop -->
-<div class="cookiebar cookiebar--position-<?= $this->position ?>" role="complementary" aria-describedby="cookiebar-desc" style="display:none;" data-cookiebar="<?= $this->cookie ?>">
+<div class="cookiebar cookiebar--position-<?= $this->position ?>" role="complementary" aria-describedby="cookiebar-desc" style="display:none;" data-cookiebar="<?= $this->cookie ?>"<?php if ($this->ttl): ?> data-cookiebar-ttl="<?= $this->ttl ?>"<?php endif; ?>>
     <div class="cookiebar__text" aria-live="assertive" role="alert">
         <span class="cookiebar__message"><?= $this->message ?></span>
 

@@ -24,9 +24,15 @@ document.addEventListener('DOMContentLoaded', function() {
 	if (acceptButton) {
         acceptButton.addEventListener('click', function (e) {
 			e.preventDefault();
+
 			var date = new Date();
-			date.setDate(date.getDate() + 365);
+			var ttl = cookiebar.dataset.cookiebarTtl ? parseInt(cookiebar.dataset.cookiebarTtl, 10) : 365;
+
+			// Set the cookie
+			date.setDate(date.getDate() + ttl);
 			document.cookie = cookieName + "=1; expires=" + date.toUTCString() + ';' + 'path=/';
+
+			// Remove the active CSS class
 			cookiebar.classList.remove(cssClass);
 		});
 	}

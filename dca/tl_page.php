@@ -16,7 +16,7 @@
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'cookiebar_enable';
 $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] .= ';{cookiebar_legend},cookiebar_enable';
 
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['cookiebar_enable'] = 'cookiebar_message,cookiebar_button,cookiebar_url,cookiebar_link,cookiebar_position,cookiebar_placement,cookiebar_combineAssets,cookiebar_includeCss';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['cookiebar_enable'] = 'cookiebar_message,cookiebar_button,cookiebar_ttl,cookiebar_url,cookiebar_link,cookiebar_position,cookiebar_placement,cookiebar_combineAssets,cookiebar_includeCss';
 
 /*
  * Add the fields
@@ -33,7 +33,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_message'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_message'],
     'exclude' => true,
     'inputType' => 'text',
-    'eval' => ['mandatory' => true, 'tl_class' => 'w50'],
+    'eval' => ['mandatory' => true, 'tl_class' => 'long'],
     'sql' => 'text NULL',
 ];
 
@@ -103,4 +103,12 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_includeCss'] = [
     'default' => 1,
     'eval' => ['tl_class' => 'w50'],
     'sql' => "char(1) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_ttl'] = [
+    'label' => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_ttl'],
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => ['rgxp' => 'digit', 'tl_class' => 'w50'],
+    'sql' => "varchar(4) NOT NULL default ''",
 ];

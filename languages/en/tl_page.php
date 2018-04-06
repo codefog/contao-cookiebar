@@ -46,6 +46,10 @@ $GLOBALS['TL_LANG']['tl_page']['cookiebar_includeCss'] = [
     'Include cookiebar default CSS',
     'Include the default stylesof cookiebar.',
 ];
+$GLOBALS['TL_LANG']['tl_page']['cookiebar_ttl'] = [
+    'Cookiebar display interval (days)',
+    'Here you can enter a custom number of days before the cookiebar will be displayed again. If none provided, the default value will be used.',
+];
 
 /*
  * Legends
