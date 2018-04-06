@@ -1,15 +1,12 @@
 <?php
-$flag = '';
-
-if ($this->combineAssets) {
-    $flag = '|static';
-}
 
 if ($this->includeCss) {
-    $GLOBALS['TL_CSS'][] = 'system/modules/cookiebar/assets/dist/cookiebar.min.css|all' . $flag;
+    $GLOBALS['TL_CSS'][] = 'system/modules/cookiebar/assets/dist/cookiebar.min.css|all' . ($this->combineAssets ? '|static' : '');
 }
 
-$GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/cookiebar/assets/dist/cookiebar.min.js' . $flag;
+if ($this->combineAssets) {
+    $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/cookiebar/assets/dist/cookiebar.min.js|static';
+}
 ?>
 
 <!-- indexer::stop -->
@@ -24,4 +21,8 @@ $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/cookiebar/assets/dist/cookiebar.mi
 
     <button class="cookiebar__button" data-cookiebar-accept><?= $this->button ?></button>
 </div>
+
+<?php if (!$this->combineAssets): ?>
+    <script src="system/modules/cookiebar/assets/dist/cookiebar.min.js" defer></script>
+<?php endif; ?>
 <!-- indexer::continue -->
