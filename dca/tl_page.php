@@ -41,11 +41,11 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_url'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_url'],
     'exclude' => true,
     'inputType' => 'text',
-    'eval' => ['rgxp'=>'url', 'decodeEntities' => true, 'fieldType'=>'radio', 'tl_class' => 'w50 wizard'],
+    'eval' => ['rgxp' => 'url', 'decodeEntities' => true, 'fieldType' => 'radio', 'tl_class' => 'w50 wizard'],
     'wizard' => [
         function (\Contao\DataContainer $dc) {
-            return ' <a href="contao/page.php?do=' . \Contao\Input::get('do') . '&amp;table=' . $dc->table . '&amp;field=' . $dc->field . '&amp;value=' . rawurlencode(str_replace(['{{link_url::', '}}'], '', $dc->value)) . '" title="' . specialchars($GLOBALS['TL_LANG']['MSC']['pagepicker']) . '" onclick="Backend.getScrollOffset();Backend.openModalSelector({\'width\':768,\'title\':\'' . specialchars(str_replace("'", "\\'", $GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field]['label'][0])) . '\',\'url\':this.href,\'id\':\'' . $dc->field . '\',\'tag\':\'ctrl_'. $dc->field . ((\Contao\Input::get('act') == 'editAll') ? '_' . $dc->id : '') . '\',\'self\':this});return false">' . \Contao\Image::getHtml('pickpage.gif', $GLOBALS['TL_LANG']['MSC']['pagepicker'], 'style="vertical-align:top;cursor:pointer"') . '</a>';
-        }
+            return ' <a href="contao/page.php?do='.\Contao\Input::get('do').'&amp;table='.$dc->table.'&amp;field='.$dc->field.'&amp;value='.rawurlencode(str_replace(['{{link_url::', '}}'], '', $dc->value)).'" title="'.specialchars($GLOBALS['TL_LANG']['MSC']['pagepicker']).'" onclick="Backend.getScrollOffset();Backend.openModalSelector({\'width\':768,\'title\':\''.specialchars(str_replace("'", "\\'", $GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field]['label'][0])).'\',\'url\':this.href,\'id\':\''.$dc->field.'\',\'tag\':\'ctrl_'.$dc->field.(('editAll' === \Contao\Input::get('act')) ? '_'.$dc->id : '').'\',\'self\':this});return false">'.\Contao\Image::getHtml('pickpage.gif', $GLOBALS['TL_LANG']['MSC']['pagepicker'], 'style="vertical-align:top;cursor:pointer"').'</a>';
+        },
     ],
     'sql' => "varchar(255) NOT NULL default ''",
 ];
