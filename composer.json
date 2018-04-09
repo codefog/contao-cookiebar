@@ -1,27 +1,30 @@
 {
     "name": "codefog/contao-cookiebar",
     "description": "cookiebar extension for Contao Open Source CMS",
-    "keywords": ["contao", "cookie", "cookielaw"],
+    "keywords": ["contao", "cookie", "cookielaw", "cookiebar"],
     "type": "contao-module",
-    "license": "LGPL-3.0-or-later",
+    "license": "MIT",
     "authors": [
         {
             "name": "Codefog",
-            "homepage": "http://codefog.pl"
+            "homepage": "https://codefog.pl"
         }
     ],
     "require": {
-        "php": ">=5.3.2",
-        "contao/core-bundle": "~3.5 || ~4.1",
+        "php": "^5.4|^7.0",
+        "contao/core-bundle": "~3.5 || ~4.4",
         "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.10"
+    },
+    "autoload": {
+        "psr-0": {
+            "Codefog\\Cookiebar\\": ["src/"]
+        }
     },
     "replace": {
         "contao-legacy/cookiebar": "self.version"
-    },
-    "autoload": {
-        "classmap": [
-            "classes/"
-        ]
     },
     "extra": {
         "contao": {

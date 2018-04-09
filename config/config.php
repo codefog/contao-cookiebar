@@ -1,27 +1,16 @@
 <?php
 
-/**
- * cookiebar extension for Contao Open Source CMS
+/*
+ * Cookiebar extension for Contao Open Source CMS
  *
- * Copyright (C) 2013 Codefog
+ * Copyright (C) 2011-2018 Codefog
  *
- * @package cookiebar
- * @author  Codefog <http://codefog.pl>
- * @author  Kamil Kuzminski <kamil.kuzminski@codefog.pl>
- * @license LGPL
+ * @author  Codefog <https://codefog.pl>
+ * @author  Kamil Kuzminski <https://github.com/qzminski>
+ * @license MIT
  */
-
 
 /**
- * Extension version
+ * Hooks.
  */
-@define('COOKIEBAR_VERSION', '1.3');
-@define('COOKIEBAR_BUILD', '2');
-
-
-/**
- * Hooks
- */
-$GLOBALS['TL_HOOKS']['generatePage'][] = ['CookieBar', 'addCookiebarScripts'];
-$GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = ['CookieBar', 'addCookiebarBuffer'];
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = ['CookieBar', 'replaceCookiebarInsertTags'];
+$GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = ['Codefog\Cookiebar\EventListener\TemplateListener', 'onOutputFrontendTemplate'];

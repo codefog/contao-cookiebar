@@ -11,24 +11,24 @@ you can also choose the details page that will appear as the `"read more"` link 
 The bar will then appear in the front end. Please note that you **do not need** any JavaScript library like MooTools or 
 jQuery to make it work.
 
-![](images/frontend.png)
+![](images/preview.png)
 
 ## Change appearance
 
 The cookiebar can be easily styled using CSS:
 
 ```css
-#cookiebar {
+.cookiebar {
     background-color: #eaeaea;
     border-top: 1px solid #b1b1b1;
     color: #000000;
 }
  
-#cookiebar button {
+.cookiebar__button {
     background-color: #00adff;
 }
  
-#cookiebar a {
+.cookiebar__link {
     color: #a84204;
 }
 ```

@@ -1,17 +1,16 @@
 <?php
 
-/**
- * cookiebar extension for Contao Open Source CMS
+/*
+ * Cookiebar extension for Contao Open Source CMS
  *
- * Copyright (C) 2013 Codefog
+ * Copyright (C) 2011-2018 Codefog
  *
- * @package cookiebar
- * @author  Codefog <http://codefog.pl>
- * @author  Kamil Kuzminski <kamil.kuzminski@codefog.pl>
- * @license LGPL
+ * @author  Codefog <https://codefog.pl>
+ * @author  Kamil Kuzminski <https://github.com/qzminski>
+ * @license MIT
  */
 
 /**
- * Miscellaneous
+ * Miscellaneous.
  */
 $GLOBALS['TL_LANG']['MSC']['cookiebar.more'] = &$GLOBALS['TL_LANG']['MSC']['more'];

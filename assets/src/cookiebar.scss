@@ -1,0 +1,62 @@
+.cookiebar {
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    padding: .6em 1.2em;
+    background-color: #4b4b4b;
+    color: #fff;
+    font-size: 1em;
+    text-align: center;
+    z-index: 10;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    &--active {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &--position {
+        &-top {
+            top: 0;
+        }
+
+        &-bottom {
+            bottom: 0;
+        }
+    }
+
+    &__text,
+    &__message {
+        margin-right: 1.5em;
+    }
+
+    &__link {
+        color: #fff;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__button {
+        margin: 0;
+        padding: .6em 1.2em;
+        border: none;
+        border-radius: 0;
+        background-color: #4ea55e;
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken(#4ea55e, 10);
+        }
+    }
+}

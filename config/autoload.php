@@ -1,34 +1,25 @@
 <?php
 
-/**
- * cookiebar extension for Contao Open Source CMS
+/*
+ * Cookiebar extension for Contao Open Source CMS
  *
- * Copyright (C) 2013 Codefog
+ * Copyright (C) 2011-2018 Codefog
  *
- * @package cookiebar
- * @author  Codefog <http://codefog.pl>
- * @author  Kamil Kuzminski <kamil.kuzminski@codefog.pl>
- * @license LGPL
+ * @author  Codefog <https://codefog.pl>
+ * @author  Kamil Kuzminski <https://github.com/qzminski>
+ * @license MIT
  */
 
-
 /**
- * Register the classes
+ * Register PSR-0 namespace.
  */
-if (class_exists('ClassLoader')) {
-    ClassLoader::addClasses(
-        array
-        (
-            'Contao\CookieBar' => 'system/modules/cookiebar/classes/CookieBar.php'
-        )
-    );
+if (class_exists('NamespaceClassLoader')) {
+    NamespaceClassLoader::add('Codefog\Cookiebar', 'system/modules/cookiebar/src');
 }
 
-
-/**
+/*
  * Register the templates
  */
-TemplateLoader::addFiles(array
-(
-	'cookiebar_default' => 'system/modules/cookiebar/templates/cookiebar'
-));
+TemplateLoader::addFiles([
+    'cookiebar' => 'system/modules/cookiebar/templates',
+]);
