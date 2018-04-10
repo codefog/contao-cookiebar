@@ -106,7 +106,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_includeCss'] = [
     'inputType' => 'checkbox',
     'default' => 1,
     'eval' => ['tl_class' => 'w50'],
-    'sql' => "char(1) NOT NULL default ''",
+    'sql' => "char(1) NOT NULL default '1'",
 ];
 
 $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_ttl'] = [
