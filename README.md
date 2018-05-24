@@ -6,8 +6,11 @@
 
 Cookiebar is an extension for the [Contao Open Source CMS](https://contao.org).
 
-Display the information about cookies on your website in a stylish bar. 
+Display the information about cookies on your website in a stylish bar.
 The bar is configurable in the root page settings and is easily stylable.
+
+> **Important!** Your cookiebar may not be displayed if you use XHTML page layout. For further information please
+> read the Troubleshooting section in the [documentation](docs/README.md).
 
 ![](docs/images/preview.png)
 
