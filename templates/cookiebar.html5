@@ -19,6 +19,14 @@ if ($this->combineAssets) {
         <?php endif ?>
     </div>
 
+    <?php if ($this->analyticsCheckbox): ?>
+        <div class="cookiebar__analytics">
+            <label class="cookiebar__analytics-label">
+                <input type="checkbox" class="cookiebar__analytics-checkbox" value="" data-cookiebar-analytics> <span class="cookiebar__analytics-text"><?= $this->analyticsCheckbox['label'] ?></span>
+            </label>
+        </div>
+    <?php endif; ?>
+
     <button class="cookiebar__button" data-cookiebar-accept><?= $this->button ?></button>
 </div>
 
