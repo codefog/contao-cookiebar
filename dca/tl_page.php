@@ -123,7 +123,6 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_analyticsCheckbox'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_analyticsCheckbox'],
     'exclude' => true,
     'inputType' => 'checkbox',
-    'default' => 1,
     'eval' => ['tl_class' => 'clr'],
     'sql' => "char(1) NOT NULL default '1'",
 ];
