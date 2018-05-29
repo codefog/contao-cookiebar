@@ -43,4 +43,26 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.classList.remove(bodyCssClass);
         });
     }
+
+    var analyticsBox = cookiebar.querySelector('[data-cookiebar-analytics]');
+
+    // Power up the analytics box if exists
+    if (analyticsBox) {
+        var analyticsKey = 'COOKIEBAR_ANALYTICS';
+
+        // Check the box if the box was checked
+        if (localStorage.getItem(analyticsKey)) {
+            analyticsBox.checked = true;
+        }
+
+        analyticsBox.addEventListener('change', function (e) {
+            e.preventDefault();
+
+            if (this.checked) {
+                localStorage.setItem(analyticsKey, 1);
+            } else {
+                localStorage.removeItem(analyticsKey);
+            }
+        });
+    }
 });

@@ -50,6 +50,14 @@ $GLOBALS['TL_LANG']['tl_page']['cookiebar_ttl'] = [
     'Cookiebar display interval (days)',
     'Here you can enter a custom number of days before the cookiebar will be displayed again. If none provided, the default value will be used.',
 ];
+$GLOBALS['TL_LANG']['tl_page']['cookiebar_analyticsCheckbox'] = [
+    'Add the analytics checkbox',
+    'Add the checkbox that allows to opt-in/out from the analytics used on the page. <strong>IMPORTANT:</strong> please refer to the official documentation how to use it.',
+];
+$GLOBALS['TL_LANG']['tl_page']['cookiebar_analyticsLabel'] = [
+    'Analytics checkbox label',
+    'Here you can enter a custom analytics checkbox label.',
+];
 
 /*
  * Legends

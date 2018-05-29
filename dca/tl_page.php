@@ -14,9 +14,11 @@
  * Extend the palettes.
  */
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'cookiebar_enable';
+$GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'cookiebar_analyticsCheckbox';
 $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] .= ';{cookiebar_legend},cookiebar_enable';
 
-$GLOBALS['TL_DCA']['tl_page']['subpalettes']['cookiebar_enable'] = 'cookiebar_message,cookiebar_button,cookiebar_ttl,cookiebar_url,cookiebar_link,cookiebar_position,cookiebar_placement,cookiebar_combineAssets,cookiebar_includeCss';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['cookiebar_enable'] = 'cookiebar_message,cookiebar_button,cookiebar_ttl,cookiebar_url,cookiebar_link,cookiebar_position,cookiebar_placement,cookiebar_combineAssets,cookiebar_includeCss,cookiebar_analyticsCheckbox';
+$GLOBALS['TL_DCA']['tl_page']['subpalettes']['cookiebar_analyticsCheckbox'] = 'cookiebar_analyticsLabel';
 
 /*
  * Add the fields
@@ -115,4 +117,21 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_ttl'] = [
     'inputType' => 'text',
     'eval' => ['rgxp' => 'digit', 'tl_class' => 'w50'],
     'sql' => "varchar(4) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_analyticsCheckbox'] = [
+    'label' => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_analyticsCheckbox'],
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'default' => 1,
+    'eval' => ['tl_class' => 'clr'],
+    'sql' => "char(1) NOT NULL default '1'",
+];
+
+$GLOBALS['TL_DCA']['tl_page']['fields']['cookiebar_analyticsLabel'] = [
+    'label' => &$GLOBALS['TL_LANG']['tl_page']['cookiebar_analyticsLabel'],
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => ['maxlength' => 128, 'tl_class' => 'w50'],
+    'sql' => "varchar(128) NOT NULL default ''",
 ];

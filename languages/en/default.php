@@ -14,3 +14,4 @@
  * Miscellaneous.
  */
 $GLOBALS['TL_LANG']['MSC']['cookiebar.more'] = &$GLOBALS['TL_LANG']['MSC']['more'];
+$GLOBALS['TL_LANG']['MSC']['cookiebar.analytics'] = 'Opt-out from analytics';

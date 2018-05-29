@@ -59,4 +59,16 @@
             background-color: darken(#4ea55e, 10);
         }
     }
+
+    &__analytics {
+        margin-right: 1.5em;
+
+        &-label {
+            cursor: pointer;
+        }
+
+        &-checkbox {
+            margin-right: 5px;
+        }
+    }
 }

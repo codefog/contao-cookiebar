@@ -13,6 +13,49 @@ jQuery to make it work.
 
 ![](images/preview.png)
 
+## Analytics handling
+
+To support the analytics opt-out, apart from checking the analytics box in cookiebar settings, you will also need
+to adjust your Google Analytics / Piwik script. This feature can't come out of the box as the analytics implementation
+can be different for every website.
+
+The analytics checkbox in cookiebar when checked will create an item in the browser's `localStorage`
+named `COOKIEBAR_ANALYTICS`. In order to check whether it is present or not, you can simply use this snippet:
+
+```js
+var disabled = !!localStorage.getItem('COOKIEBAR_ANALYTICS');
+```
+
+Here is an example of adjusted `analytics_google.html5` template from Contao 3.5:
+
+```diff
+<?php
+
+/**
+ * To use this script, please fill in your Google Analytics ID below
+ */
+$GoogleAnalyticsId = 'UA-XXXXX-X';
+
+
+/**
+ * DO NOT EDIT ANYTHING BELOW THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING!
+ */
+if ($GoogleAnalyticsId != 'UA-XXXXX-X' && !BE_USER_LOGGED_IN && sha1(session_id() . (!Config::get('disableIpCheck') ? Environment::get('ip') : '') . 'BE_USER_AUTH') != Input::cookie('BE_USER_AUTH')): ?>
+
+<script>
++  window['ga-disable-<?= $GoogleAnalyticsId ?>'] = !!localStorage.getItem('COOKIEBAR_ANALYTICS');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '<?= $GoogleAnalyticsId ?>', 'auto');
+  <?php if (Config::get('privacyAnonymizeGA')): ?>
+    ga('set', 'anonymizeIp', true);
+  <?php endif; ?>
+  ga('send', 'pageview');
+</script>
+
+<?php endif; ?>
+
+```
+
 ## Change appearance
 
 The cookiebar can be easily styled using CSS:
