@@ -57,6 +57,21 @@ if ($GoogleAnalyticsId != 'UA-XXXXX-X' && !BE_USER_LOGGED_IN && sha1(session_id(
 
 ```
 
+### Alternate method – opt-in
+
+The first time you visit the website analytics will track your activity. It will stop doing it, when you explicitly
+check the checkbox mentioned above. This is the opt-out method.
+
+However you can provide an alternate way, where the analytics will track your activity AFTER you check the checkbox
+(opt-in). In order to do that you will have to alter the added line as follows (notice one exclamation mark):
+
+```js
+window['ga-disable-<?= $GoogleAnalyticsId ?>'] = !localStorage.getItem('COOKIEBAR_ANALYTICS');
+```
+
+You may also want to change the checkbox label to something more meaningful such as "Activate analytics" instead of
+"Deactivate analytics".
+
 ## Change appearance
 
 The cookiebar can be easily styled using CSS:
