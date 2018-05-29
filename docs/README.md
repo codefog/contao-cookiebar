@@ -26,7 +26,8 @@ named `COOKIEBAR_ANALYTICS`. In order to check whether it is present or not, you
 var disabled = !!localStorage.getItem('COOKIEBAR_ANALYTICS');
 ```
 
-Here is an example of adjusted `analytics_google.html5` template from Contao 3.5:
+Here is an example of adjusted `analytics_google.html5` template from Contao 3.5 (make sure you do NOT accidentally
+copy also the "+" sign in at the beginning of the line – it is only used to highlight the line which has been changed):
 
 ```diff
 <?php
