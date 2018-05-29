@@ -17,7 +17,8 @@ $GLOBALS['TL_LANG']['tl_page']['cookiebar_enable'] = ['Cookiebar aktivieren', 'D
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_message'] = ['Cookies Information', 'Bitte eine Kurzbeschreibung der Cookies eingeben.'];
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_jumpTo'] = ['Details Seite', 'Hier können Sie die Seite wählen, welche mehr Informationen über die Cookies enthält.'];
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_position'] = ['Cookiebar Position', 'Hier können Sie die Position der Cookiebar wählen.'];
-$GLOBALS['TL_LANG']['tl_page']['cookiebar_button'] = ['Button Label', 'Bitte geben Sie das Label des Buttons ein (z.B. <em>Akzeptieren</em>).'];
+$GLOBALS['TL_LANG']['tl_page']['cookiebar_button'] = ['Button Akzeptieren Label', 'Bitte geben Sie das Label des Buttons ein (z.B. <em>Akzeptieren</em>).'];
+$GLOBALS['TL_LANG']['tl_page']['cookiebar_denail_button'] = ['Button Ablehnen Label', 'Bitte geben Sie das Label des Buttons ein (z.B. <em>Ablehnen</em>).'];
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_includeCss'] = ['Standard-CSS einbinden', 'Die Cookiebar-Standard-Styles einbinden.'];
 
 /*

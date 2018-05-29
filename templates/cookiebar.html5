@@ -18,8 +18,8 @@ if ($this->combineAssets) {
             <a href="<?= $this->more['url'] ?>" class="cookiebar__link" title="<?= specialchars($this->more['label']) ?>"><?= $this->more['label'] ?></a>
         <?php endif ?>
     </div>
-
     <button class="cookiebar__button" data-cookiebar-accept><?= $this->button ?></button>
+    <button class="cookiebar__button denail" data-cookiebar-denail><?= $this->denail_button ?></button>
 </div>
 
 <?php if (!$this->combineAssets): ?>

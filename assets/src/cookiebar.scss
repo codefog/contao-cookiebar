@@ -59,4 +59,11 @@
             background-color: darken(#4ea55e, 10);
         }
     }
+    &__button.denail{
+        background-color: #a50810;
+        margin: 0 10px;
+        &:hover {
+            background-color: darken(#a50810, 10);
+        }
+    }
 }
