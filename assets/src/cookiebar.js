@@ -13,10 +13,14 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    var cssClass = 'cookiebar--active';
+    var bodyCssClass = 'cookiebar-active';
+    var cookiebarCssClass = 'cookiebar--active';
 
     // Add the active CSS class
-    cookiebar.classList.add(cssClass);
+    cookiebar.classList.add(cookiebarCssClass);
+
+    // Add the body CSS class
+    document.body.classList.add(bodyCssClass);
 
     var acceptButton = cookiebar.querySelector('[data-cookiebar-accept]');
 
@@ -33,7 +37,10 @@ document.addEventListener('DOMContentLoaded', function () {
             document.cookie = cookieName + "=1; expires=" + date.toUTCString() + ';' + 'path=/';
 
             // Remove the active CSS class
-            cookiebar.classList.remove(cssClass);
+            cookiebar.classList.remove(cookiebarCssClass);
+
+            // Remove the body CSS class
+            document.body.classList.remove(bodyCssClass);
         });
     }
 });
