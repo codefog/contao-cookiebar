@@ -9,8 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var cookieName = cookiebar.dataset.cookiebar;
 
     // Return if the cookie is still valid
-    if (document.cookie.indexOf(cookieName) !== -1) {
-        return;
+    var cookies = document.cookie ? document.cookie.split('; ') : [];
+    for (const c in cookies) {
+        if (cookies[c].split('=').slice(1).join('=') == cookieName) return;
     }
 
     var bodyCssClass = 'cookiebar-active';
