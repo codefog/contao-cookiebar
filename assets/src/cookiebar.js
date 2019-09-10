@@ -7,10 +7,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     var cookieName = cookiebar.dataset.cookiebar;
+    var cookies = document.cookie ? document.cookie.split('; ') : [];
 
     // Return if the cookie is still valid
-    if (document.cookie.indexOf(cookieName) !== -1) {
-        return;
+    for (var i = 0; i < cookies.length; i++) {
+        if (cookies[i] === cookieName + '=1') {
+            return;
+        }
     }
 
     var bodyCssClass = 'cookiebar-active';
