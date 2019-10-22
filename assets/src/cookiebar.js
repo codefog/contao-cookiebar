@@ -7,9 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     var cookieName = cookiebar.dataset.cookiebar;
+
+    if (window.localStorage.getItem(cookieName) && window.localStorage.getItem(cookieName) > Math.round(Date.now() / 1000)) {
+        return;
+    }
+
     var cookies = document.cookie ? document.cookie.split('; ') : [];
 
-    // Return if the cookie is still valid
+    // Return if the cookie is still valid (backwards compatibility)
     for (var i = 0; i < cookies.length; i++) {
         if (cookies[i] === cookieName + '=1') {
             return;
@@ -35,9 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
             var date = new Date();
             var ttl = cookiebar.dataset.cookiebarTtl ? parseInt(cookiebar.dataset.cookiebarTtl, 10) : 365;
 
-            // Set the cookie
+            // Store in local storage
             date.setDate(date.getDate() + ttl);
-            document.cookie = cookieName + "=1; expires=" + date.toUTCString() + ';' + 'path=/';
+            window.localStorage.setItem(cookieName, Math.round(date.getTime() / 1000));
 
             // Remove the active CSS class
             cookiebar.classList.remove(cookiebarCssClass);
