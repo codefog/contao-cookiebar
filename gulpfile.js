@@ -25,4 +25,4 @@ gulp.task('styles', function () {
         .pipe(gulp.dest('assets/dist'));
 });
 
-gulp.task('default', ['scripts', 'styles']);
+gulp.task('default', gulp.parallel('scripts', 'styles'));
