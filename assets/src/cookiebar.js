@@ -30,10 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add the body CSS class
     document.body.classList.add(bodyCssClass);
 
-    var acceptButton = cookiebar.querySelector('[data-cookiebar-accept]');
-
-    // Power up the accept button if exists
-    if (acceptButton) {
+    // Power up the accept buttons
+    Array.prototype.slice.call(cookiebar.querySelectorAll('[data-cookiebar-accept]')).forEach(function (acceptButton) {
         acceptButton.addEventListener('click', function (e) {
             e.preventDefault();
 
@@ -50,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Remove the body CSS class
             document.body.classList.remove(bodyCssClass);
         });
-    }
+    });
 
     var analyticsBox = cookiebar.querySelector('[data-cookiebar-analytics]');
 
