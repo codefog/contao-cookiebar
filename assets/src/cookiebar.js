@@ -61,6 +61,11 @@ document.addEventListener('DOMContentLoaded', function () {
             analyticsBox.checked = true;
         }
 
+        // Set the correct value if box is already checked (#72)
+        if (analyticsBox.checked) {
+            localStorage.setItem(analyticsKey, 1);
+        }
+
         analyticsBox.addEventListener('change', function (e) {
             e.preventDefault();
 
