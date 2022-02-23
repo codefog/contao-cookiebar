@@ -11,20 +11,20 @@
         }
     ],
     "require": {
-        "php": "^5.4|^7.0",
-        "contao/core-bundle": "~3.5 || ~4.4",
-        "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
+        "php": "^7.4 || ^8.0",
+        "contao/core-bundle": "^4.9"
     },
     "require-dev": {
+        "contao/manager-plugin": "^2.0",
         "friendsofphp/php-cs-fixer": "^2.10"
+    },
+    "conflict": {
+        "contao/manager-plugin": "<2.0 || >=3.0"
     },
     "autoload": {
         "psr-0": {
-            "Codefog\\Cookiebar\\": ["src/"]
+            "Codefog\\Cookiebar\\": "src/"
         }
-    },
-    "replace": {
-        "contao-legacy/cookiebar": "self.version"
     },
     "extra": {
         "contao": {
