@@ -25,7 +25,7 @@ $GLOBALS['TL_LANG']['tl_page']['cookiebar_url'] = [
     'クッキーバーのリンクのURL',
     'さらに詳しいクッキーについての情報を提供するURLを入力できます。.',
 ];
-$GLOBALS['TL_LANG']['tl_page']['cookiebar_position'] = ['Cookiebar position', 'Here you can choose the cookiebar position.'];
+$GLOBALS['TL_LANG']['tl_page']['cookiebar_position'] = ['クッキーバーの位置', 'ここでクッキーバーの位置を選択できます。'];
 $GLOBALS['TL_LANG']['tl_page']['cookiebar_placement'] = [
     'DOMでのクッキーバーの場所',
     'DOM構造でのクッキーバーの場所を選択できます。',
