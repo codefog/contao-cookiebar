@@ -15,7 +15,7 @@ if ($this->combineAssets) {
         <span class="cookiebar__message"><?= $this->message ?></span>
 
         <?php if ($this->more): ?>
-            <a href="<?= $this->more['url'] ?>" class="cookiebar__link" title="<?= specialchars($this->more['label']) ?>"><?= $this->more['label'] ?></a>
+            <a href="<?= $this->more['url'] ?>" class="cookiebar__link" title="<?= \Contao\StringUtil::specialchars($this->more['label']) ?>"><?= $this->more['label'] ?></a>
         <?php endif ?>
     </div>
 
